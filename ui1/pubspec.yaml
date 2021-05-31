@@ -11,6 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  hidden_drawer_menu:
+  foldable_sidebar:
 
   cupertino_icons: ^1.0.2
 

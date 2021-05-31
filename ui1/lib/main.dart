@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hidden_drawer_menu/hidden_drawer_menu.dart';
+import "package:foldable_sidebar/foldable_sidebar.dart";
 
 void main() {
   runApp(MyApp());
@@ -26,9 +28,11 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _selectedDestination = 0;
+/*
+    Used Hidden_Drawer_Menu
+*/
 
+class _MyHomePageState extends State<MyHomePage>{
   List list = [
     ['assets/message.png','Message+'],
     ['assets/ask.png','Ask+'],
@@ -38,81 +42,181 @@ class _MyHomePageState extends State<MyHomePage> {
     ['assets/mail.png','Mail+'],
     ['assets/portfolio.png','Portfolio+'],
   ];
-  Widget grids(BuildContext context, int index) {
-    return ListTile(
-      title: Column(
-      children: [
-      Container(child: Image.asset(list[index][0]), width: MediaQuery.of(context).size.width*0.4,),
-      Center(child: Text(list[index][1]),)
-      
-      ]
-        
-      ),
-    );
+
+  List<ScreenHiddenDrawer> items = List();
+
+   @override
+  void initState() {
+    items.add(ScreenHiddenDrawer(
+        ItemHiddenMenu(
+          name: "Social Media",
+          baseStyle:
+              TextStyle(color: Colors.white.withOpacity(0.8), fontSize: 28.0),
+          colorLineSelected: Colors.teal,
+        ),
+        socialMedia(context)
+        ));
+
+    items.add(ScreenHiddenDrawer(
+        ItemHiddenMenu(
+          name: "Compilers",
+          baseStyle:
+              TextStyle(color: Colors.white.withOpacity(0.8), fontSize: 28.0),
+          colorLineSelected: Colors.orange,
+        ),
+        socialMedia(context)
+        ));
+
+    items.add(ScreenHiddenDrawer(
+        ItemHiddenMenu(
+          name: "Utilities",
+          baseStyle:
+              TextStyle(color: Colors.white.withOpacity(0.8), fontSize: 28.0),
+        ),
+        socialMedia(context)));
+
+    super.initState();
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        drawer: Drawer(
-          child: ListView(
-            // Important: Remove any padding from the ListView.
-            padding: EdgeInsets.zero,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Text(
-                  'UI demo page',
-                  style: TextStyle(fontSize: 20),
-                ),
-              ),
-              Divider(
-                height: 1,
-                thickness: 1,
-              ),
-              ListTile(
-                leading: Icon(Icons.favorite),
-                title: Text('Social Media'),
-                selected: _selectedDestination == 0,
-                onTap: () => selectDestination(0),
-              ),
-              ListTile(
-                leading: Icon(Icons.delete),
-                title: Text('Compilers'),
-                selected: _selectedDestination == 1,
-                onTap: () => selectDestination(1),
-              ),
-              ListTile(
-                leading: Icon(Icons.label),
-                title: Text('Office'),
-                selected: _selectedDestination == 2,
-                onTap: () => selectDestination(2),
-              ),
-              ListTile(
-                leading: Icon(Icons.label),
-                title: Text('Etc'),
-                selected: _selectedDestination == 2,
-                onTap: () => selectDestination(2),
-              ),
-            ],
-          ),
-        ),
-
-        body: Center(
+  Widget socialMedia(BuildContext context){
+    return Center(
             child: Container(
           child: GridView.builder(
           itemCount: list.length,
             itemBuilder: grids,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
           ),
-        )));
+        ));
+
   }
-  void selectDestination(int index) {
-    setState(() {
-      _selectedDestination = index;
-    });
+
+  Widget grids(BuildContext context, int index) {
+    return ListTile(
+      title: Column(
+      children: [
+      Container(child: Image.asset(list[index][0]), width: MediaQuery.of(context).size.width*0.4,),
+      Center(child: Text(list[index][1]),)
+
+      ]
+
+      ),
+    );
   }
+
+  @override
+  Widget build(BuildContext context) {
+    return HiddenDrawerMenu(
+      backgroundColorMenu: Colors.blueGrey,
+      backgroundColorAppBar: Colors.cyan,
+      screens: items,
+      verticalScalePercent: 80.0,
+      contentCornerRadius: 40.0,
+      enableShadowItensMenu: true,
+      );
+  }
+
 }
+
+
+
+
+/*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+    Normal Drawer
+****************************************************************************************************************************************************************************************************************************************/
+
+// class _MyHomePageState extends State<MyHomePage> {
+//   int _selectedDestination = 0;
+
+//   List list = [
+//     ['assets/message.png','Message+'],
+//     ['assets/ask.png','Ask+'],
+//     ['assets/connect.jpg','Connect+'],
+//     ['assets/date.png','Date+'],
+//     ['assets/discover.png','Discover+'],
+//     ['assets/mail.png','Mail+'],
+//     ['assets/portfolio.png','Portfolio+'],
+//   ];
+
+//   Widget grids(BuildContext context, int index) {
+//     return ListTile(
+//       title: Column(
+//       children: [
+//       Container(child: Image.asset(list[index][0]), width: MediaQuery.of(context).size.width*0.4,),
+//       Center(child: Text(list[index][1]),)
+
+//       ]
+
+//       ),
+//     );
+//   }
+
+//   Widget socialMedia(BuildContext context){
+//     return Center(
+//             child: Container(
+//           child: GridView.builder(
+//           itemCount: list.length,
+//             itemBuilder: grids,
+//             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+//           ),
+//         ));
+
+//   }
+
+//   // @override
+//   // Widget build(BuildContext context) {
+//   //   return Scaffold(
+//   //       appBar: AppBar(
+//   //         title: Text(widget.title),
+//   //       ),
+//   //       // drawer: Drawer(
+//   //       //   child: ListView(
+//   //       //     // Important: Remove any padding from the ListView.
+//   //       //     padding: EdgeInsets.zero,
+//   //       //     children: <Widget>[
+//   //       //       Padding(
+//   //       //         padding: const EdgeInsets.all(20.0),
+//   //       //         child: Text(
+//   //       //           'UI demo page',
+//   //       //           style: TextStyle(fontSize: 20),
+//   //       //         ),
+//   //       //       ),
+//   //       //       Divider(
+//   //       //         height: 1,
+//   //       //         thickness: 1,
+//   //       //       ),
+//   //       //       ListTile(
+//   //       //         leading: Icon(Icons.favorite),
+//   //       //         title: Text('Social Media'),
+//   //       //         selected: _selectedDestination == 0,
+//   //       //         onTap: () => selectDestination(0),
+//   //       //       ),
+//   //       //       ListTile(
+//   //       //         leading: Icon(Icons.delete),
+//   //       //         title: Text('Compilers'),
+//   //       //         selected: _selectedDestination == 1,
+//   //       //         onTap: () => selectDestination(1),
+//   //       //       ),
+//   //       //       ListTile(
+//   //       //         leading: Icon(Icons.label),
+//   //       //         title: Text('Office'),
+//   //       //         selected: _selectedDestination == 2,
+//   //       //         onTap: () => selectDestination(2),
+//   //       //       ),
+//   //       //       ListTile(
+//   //       //         leading: Icon(Icons.label),
+//   //       //         title: Text('Etc'),
+//   //       //         selected: _selectedDestination == 2,
+//   //       //         onTap: () => selectDestination(2),
+//   //       //       ),
+//   //       //     ],
+//   //       //   ),
+//   //       // ),
+
+//   //       body: socialMedia(context));
+//   // }
+//   void selectDestination(int index) {
+//     setState(() {
+//       _selectedDestination = index;
+//     });
+//   }
+// }
