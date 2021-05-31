@@ -29,7 +29,7 @@
 .packages
 .pub-cache/
 .pub/
-/ui2/build/
+/build/
 
 # Web related
 lib/generated_plugin_registrant.dart
@@ -41,11 +41,6 @@ app.*.symbols
 app.*.map.json
 
 # Android Studio will place build artifacts here
-ui1/android/app/debug
-ui1/android/app/profile
-ui1/android/app/release
-
-# Android Studio will place build artifacts here
-ui2/android/app/debug
-ui2/android/app/profile
-ui2/android/app/release
+/android/app/debug
+/android/app/profile
+/android/app/release
