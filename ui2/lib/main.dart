@@ -28,7 +28,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  
+
 
   @override
   Widget build(BuildContext context) {
@@ -53,10 +53,10 @@ class _MyHomePageState extends State<MyHomePage> {
             padding: EdgeInsets.zero,
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.all(20.0),
+                padding: const EdgeInsets.fromLTRB(20, 60, 40, 40),
                 child: Text(
-                  'UI demo page',
-                  style: TextStyle(fontSize: 20),
+                  'One Percent',
+                  style: TextStyle(fontSize: 30),
                 ),
               ),
               Divider(
@@ -357,7 +357,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
 
-        
+
     );
   }
 }
