@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -27,35 +28,24 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _selectedDestination = 0;
-
-  List list = [
-    ['assets/message.png','Message+'],
-    ['assets/ask.png','Ask+'],
-    ['assets/connect.jpg','Connect+'],
-    ['assets/date.png','Date+'],
-    ['assets/discover.png','Discover+'],
-    ['assets/mail.png','Mail+'],
-    ['assets/portfolio.png','Portfolio+'],
-  ];
-  Widget grids(BuildContext context, int index) {
-    return ListTile(
-      title: Column(
-      children: [
-      Container(child: Image.asset(list[index][0]), width: MediaQuery.of(context).size.width*0.4,),
-      Center(child: Text(list[index][1]),)
-      
-      ]
-        
-      ),
-    );
-  }
+  
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: Text(widget.title),
+        ),
+        body: Center(
+          child: Container(
+            child: Text(
+                'Welcome to One Percent',
+              style: TextStyle(fontSize: 30,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.lightBlue),
+
+            ),
+          ),
         ),
         drawer: Drawer(
           child: ListView(
@@ -81,19 +71,29 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: TextButton(
-
                           style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                                  (Set<MaterialState> states) {
+                            backgroundColor: MaterialStateProperty
+                                .resolveWith<Color>((Set<MaterialState> states)
+                              {
                                 return null; // Use the component's default.
                               },
                             ),
                           ),
                           onPressed: (){
+                             Navigator.push(context, MaterialPageRoute(builder: (_) {
+                              return Scaffold(
+                                appBar: AppBar(
+                                  title: Text('Message+')
+                                ),
+                                body: Container(
+                                  child: Image.asset('assets/message.png')
+                                ),
+                              );
+                             }));
                           },
                           child: Text("Message+",
-                            style: TextStyle(fontSize: 18,color: Colors.black),
-
+                            style: TextStyle(fontSize: 18,
+                                color: Colors.black),
                           ),
                         ),
                       ),
@@ -103,28 +103,98 @@ class _MyHomePageState extends State<MyHomePage> {
                     margin: EdgeInsets.only(left: 60),
                     child: Align(
                       alignment: Alignment.centerLeft,
-                      child: Text("Date+",
-                        style: TextStyle(fontSize: 18),
+                      child: TextButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty
+                              .resolveWith<Color>((Set<MaterialState> states)
+                          {
+                            return null; // Use the component's default.
+                          },
+                          ),
+                        ),
+                        onPressed: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (_) {
+                            return Scaffold(
+                              appBar: AppBar(
+                                  title: Text('Connect+')
+                              ),
+                              body: Container(
+                                  child: Image.asset('assets/connect.jpg')
+                              ),
+                            );
+                          }));
+                        },
+                        child: Text("Connect+",
+                          style: TextStyle(fontSize: 18,
+                              color: Colors.black),
+                        ),
                       ),
                     ),
 
                   ),
                   Container(
-                    margin: EdgeInsets.only(left: 60,top: 6),
+                    margin: EdgeInsets.only(left: 60),
                     child: Align(
                       alignment: Alignment.centerLeft,
-                      child: Text("Portfolio+",
-                        style: TextStyle(fontSize: 18),
+                      child: TextButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty
+                              .resolveWith<Color>((Set<MaterialState> states)
+                          {
+                            return null; // Use the component's default.
+                          },
+                          ),
+                        ),
+                        onPressed: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (_) {
+                            return Scaffold(
+                              appBar: AppBar(
+                                  title: Text('Date+')
+                              ),
+                              body: Container(
+                                  child: Image.asset('assets/date.png')
+                              ),
+                            );
+                          }));
+                        },
+                        child: Text("Date+",
+                          style: TextStyle(fontSize: 18,
+                              color: Colors.black),
+                        ),
                       ),
                     ),
 
                   ),
+
                   Container(
-                    margin: EdgeInsets.only(left: 60,top: 6,bottom: 6),
+                    margin: EdgeInsets.only(left: 60),
                     child: Align(
                       alignment: Alignment.centerLeft,
-                      child: Text("Connect+",
-                        style: TextStyle(fontSize: 18),
+                      child: TextButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty
+                              .resolveWith<Color>((Set<MaterialState> states)
+                          {
+                            return null; // Use the component's default.
+                          },
+                          ),
+                        ),
+                        onPressed: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (_) {
+                            return Scaffold(
+                              appBar: AppBar(
+                                  title: Text('Discover+')
+                              ),
+                              body: Container(
+                                  child: Image.asset('assets/discover.png')
+                              ),
+                            );
+                          }));
+                        },
+                        child: Text("Discover+",
+                          style: TextStyle(fontSize: 18,
+                              color: Colors.black),
+                        ),
                       ),
                     ),
 
@@ -140,19 +210,145 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               ExpansionTile(
                 leading: Icon(Icons.code_outlined),
-                children: <Widget>[Text("C"), Text("C++"),
-                  Text("Python")
-                  ,Text("Java")],
-                trailing:Icon(Icons.keyboard_arrow_down_outlined),
-                title: Row(
-                  children: [
-                    Text('Compiler',
-                      style: TextStyle(fontSize: 20),
-
+                children: <Widget>[
+                  Container(
+                    margin: EdgeInsets.only(left: 41),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: TextButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty
+                              .resolveWith<Color>((Set<MaterialState> states)
+                          {
+                            return null; // Use the component's default.
+                          },
+                          ),
+                        ),
+                        onPressed: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (_) {
+                            return Scaffold(
+                              appBar: AppBar(
+                                  title: Text('C compiler')
+                              ),
+                              body: Container(
+                                  child: Image.asset('assets/portfolio.png')
+                              ),
+                            );
+                          }));
+                        },
+                        child: Text("C",
+                          style: TextStyle(fontSize: 18,
+                              color: Colors.black),
+                        ),
+                      ),
                     ),
 
-                  ],
-                ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(left: 52),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: TextButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty
+                              .resolveWith<Color>((Set<MaterialState> states)
+                          {
+                            return null; // Use the component's default.
+                          },
+                          ),
+                        ),
+                        onPressed: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (_) {
+                            return Scaffold(
+                              appBar: AppBar(
+                                  title: Text('C++ compiler')
+                              ),
+                              body: Container(
+                                  child: Image.asset('assets/date.png')
+                              ),
+                            );
+                          }));
+                        },
+                        child: Text("C++",
+                          style: TextStyle(fontSize: 18,
+                              color: Colors.black),
+                        ),
+                      ),
+                    ),
+
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(left: 62),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: TextButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty
+                              .resolveWith<Color>((Set<MaterialState> states)
+                          {
+                            return null; // Use the component's default.
+                          },
+                          ),
+                        ),
+                        onPressed: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (_) {
+                            return Scaffold(
+                              appBar: AppBar(
+                                  title: Text('Python Compiler')
+                              ),
+                              body: Container(
+                                  child: Image.asset('assets/ask.png')
+                              ),
+                            );
+                          }));
+                        },
+                        child: Text("Python",
+                          style: TextStyle(fontSize: 18,
+                              color: Colors.black),
+                        ),
+                      ),
+                    ),
+
+                  ),
+
+                  Container(
+                    margin: EdgeInsets.only(left: 57),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: TextButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty
+                              .resolveWith<Color>((Set<MaterialState> states)
+                          {
+                            return null; // Use the component's default.
+                          },
+                          ),
+                        ),
+                        onPressed: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (_) {
+                            return Scaffold(
+                              appBar: AppBar(
+                                  title: Text('Java compiler')
+                              ),
+                              body: Container(
+                                  child: Image.asset('assets/discover.png')
+                              ),
+                            );
+                          }));
+                        },
+                        child: Text("Java",
+                          style: TextStyle(fontSize: 18,
+                              color: Colors.black),
+                        ),
+                      ),
+                    ),
+
+                  ),
+                ],
+                trailing:Icon(Icons.keyboard_arrow_down_outlined),
+                title: Text('Compiler',
+                      style: TextStyle(fontSize: 20),),
+
                 // selected: _selectedDestination == 1,
                 // onTap: () => selectDestination(1),
               ),
@@ -161,18 +357,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
 
-        body: Center(
-            child: Container(
-          child: GridView.builder(
-          itemCount: list.length,
-            itemBuilder: grids,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-          ),
-        )));
-  }
-  void selectDestination(int index) {
-    setState(() {
-      _selectedDestination = index;
-    });
+        
+    );
   }
 }
