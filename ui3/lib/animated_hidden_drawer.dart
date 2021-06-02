@@ -99,57 +99,101 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
   double scaleFactor = 1;
   double radius = 0;
   bool isDOpen = false;
+  final ScrollController _scrollController = new ScrollController();
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
+
     return Stack(
       children: [
-        Container(
-          color: widget.drawerBackgroundColor,
-          height: screenHeight,
-          width: screenWidth,
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        // Container(
+        //   child: Visibility(child: widget.header, visible: widget.header == null,)
+          
+        // ),
+        Column(
+          children: [
+            Container(
+          /// This highly Customisable widget is used
+          /// as a header for our attractive drawer
+          height: screenHeight*0.3,
+          width: 1000,
+          color: Color(0xff6b705c),
+          child: Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                widget.header != null ? widget.header : Container(),
-                Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ListView.builder(
-              /// This provides the list view
-              /// ... xD
-              /// among the given list of widget items
-              shrinkWrap: true,
-              itemCount: widget.items.length,
-              itemBuilder: (ctx, index) {
-                return Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                GestureDetector(child: widget.items[index]),
-                Container(
-                  /// This container acts as a divider line
-                  color: widget.dividerColor,
-                  height: widget.dividerDensity,
-                  width: widget.dividerLength,
-                ),
-                SizedBox(
-                  height: 30,
-                )
-                    ],
-                  );
-              },
-            ),
-          ),
-                    ],
+                CircleAvatar(
+                  backgroundColor: Color(0xffffe8d6),
+                  radius: 40,
+                  child: Icon(
+                    Icons.account_circle,
+                    color: Color(0xff6b705c),
+                    size: 80,
                   ),
-                Container()
+                ),
+                Text(
+                  "One Percent",
+                  style: TextStyle(
+                      color: Color(0xffffe8d6),
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold),
+                )
               ],
             ),
+          ),
         ),
+            //widget.header != null ? widget.header : Container(),
+            Container(
+          color: widget.drawerBackgroundColor,
+          height: screenHeight*0.7,
+          width: screenWidth,
+          child: SingleChildScrollView(
+                      child: Column(
+                    //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      //widget.header != null ? widget.header : Container(),
+                      Column(
+                          
+                //mainAxisAlignment: MainAxisAlignment.center,
+                //crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ListView.builder(
+                          /// This provides the list view
+                          /// ... xD
+                          /// among the given list of widget items
+                          controller: _scrollController,
+                          shrinkWrap: true,
+                          itemCount: widget.items.length,
+                          itemBuilder: (ctx, index) {
+              return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+              GestureDetector(child: widget.items[index]),
+              Container(
+                /// This container acts as a divider line
+                color: widget.dividerColor,
+                height: widget.dividerDensity,
+                width: widget.dividerLength,
+              ),
+              SizedBox(
+                height: 30,
+              )
+                  ],
+                );
+                          },
+                    ),
+                ),
+                ],
+              ),
+                    ],
+                  ),
+          )
+        ),]),
         GestureDetector(
           onPanUpdate: (data) {
             /// This gesture detection is for
@@ -265,5 +309,57 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
         ),
       ],
     );
+
+    
+
+    // return SingleChildScrollView(
+    //       child: SingleChildScrollView(
+    //           scrollDirection: Axis.vertical,
+    //                     child: Column(
+    //               //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    //               children: [
+    //                 widget.header != null ? widget.header : Container(),
+    //                 Scrollbar(
+    //                   isAlwaysShown: true,
+    //                   controller: _scrollController,
+    //                                       child: Column(
+    //                         //mainAxisAlignment: MainAxisAlignment.center,
+    //                         //crossAxisAlignment: CrossAxisAlignment.start,
+    //                         children: [
+    //           Padding(
+    //             padding: const EdgeInsets.all(8.0),
+    //             child: ListView.builder(
+    //                   /// This provides the list view
+    //                   /// ... xD
+    //                   /// among the given list of widget items
+    //                   controller: _scrollController,
+    //                   shrinkWrap: true,
+    //                   itemCount: widget.items.length,
+    //                   itemBuilder: (ctx, index) {
+    //                       return Column(
+    //                           crossAxisAlignment: CrossAxisAlignment.start,
+    //                           children: [
+    //                       GestureDetector(child: widget.items[index]),
+    //                       Container(
+    //                         /// This container acts as a divider line
+    //                         color: widget.dividerColor,
+    //                         height: widget.dividerDensity,
+    //                         width: widget.dividerLength,
+    //                       ),
+    //                       SizedBox(
+    //                         height: 30,
+    //                       )
+    //                           ],
+    //                         );
+    //                   },
+    //               ),
+    //           ),
+    //                         ],
+    //                       ),
+    //                 ),
+    //               ],
+    //             ),
+    //         ),
+    // );
   }
 }
