@@ -842,18 +842,18 @@ Widget build(BuildContext context){
   }
   return Container(
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(80)),
-      height: 665,
+      height: 645,
       width: 1000,
       child: Center(
         // child: Text("hello, this is my first plugin"),
         child: DefaultTabController(
       length: 2,
       child: Scaffold(
-        appBar: AppBar(
-          brightness: Brightness.dark,
+        // appBar: AppBar(
+        //   brightness: Brightness.dark,
           
-          backgroundColor: _themeColor,
-        ),
+        //   backgroundColor: _themeColor,
+        // ),
         body: Material(
           child: Column(
             children: [
@@ -939,59 +939,59 @@ Widget build(BuildContext context){
             }
           },
         ),
-        drawer: Drawer(
-          child: Container(
-            margin: EdgeInsets.fromLTRB(0, 50, 0, 0),
-            child: Column(
-              children: [
-                Text(
-                  "Menu",
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                ),
-                Expanded(
-                  child: ListView(
-                    children: [
-                      Card(
-                          child: ListTile(
-                              leading: Icon(
-                                Icons.home,
-                                color: _themeColor,
-                                size: 50,
-                              ),
-                              title: Text("Home",
-                                  style: TextStyle(fontSize: 22.5,color: _themeColor),
-                                  textAlign: TextAlign.start))),
-                      Card(
-                          child: ListTile(
-                              leading: Icon(
-                                Icons.info,
-                                color: _themeColor,
-                                size: 50,
-                              ),
-                              title: Text(
-                                "About us",
-                                style: TextStyle(fontSize: 22.5,color: _themeColor),
-                                textAlign: TextAlign.start,
-                              ))),
-                      Card(
-                          child: ListTile(
-                              leading: Icon(
-                                Icons.contact_page,
-                                color: _themeColor,
-                                size: 50,
-                              ),
-                              title: Text(
-                                "Contact us",
-                                style: TextStyle(fontSize: 22.5,color: _themeColor),
-                                textAlign: TextAlign.start,
-                              ))),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
+        // drawer: Drawer(
+        //   child: Container(
+        //     margin: EdgeInsets.fromLTRB(0, 50, 0, 0),
+        //     child: Column(
+        //       children: [
+        //         Text(
+        //           "Menu",
+        //           style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+        //         ),
+        //         Expanded(
+        //           child: ListView(
+        //             children: [
+        //               Card(
+        //                   child: ListTile(
+        //                       leading: Icon(
+        //                         Icons.home,
+        //                         color: _themeColor,
+        //                         size: 50,
+        //                       ),
+        //                       title: Text("Home",
+        //                           style: TextStyle(fontSize: 22.5,color: _themeColor),
+        //                           textAlign: TextAlign.start))),
+        //               Card(
+        //                   child: ListTile(
+        //                       leading: Icon(
+        //                         Icons.info,
+        //                         color: _themeColor,
+        //                         size: 50,
+        //                       ),
+        //                       title: Text(
+        //                         "About us",
+        //                         style: TextStyle(fontSize: 22.5,color: _themeColor),
+        //                         textAlign: TextAlign.start,
+        //                       ))),
+        //               Card(
+        //                   child: ListTile(
+        //                       leading: Icon(
+        //                         Icons.contact_page,
+        //                         color: _themeColor,
+        //                         size: 50,
+        //                       ),
+        //                       title: Text(
+        //                         "Contact us",
+        //                         style: TextStyle(fontSize: 22.5,color: _themeColor),
+        //                         textAlign: TextAlign.start,
+        //                       ))),
+        //             ],
+        //           ),
+        //         ),
+        //       ],
+        //     ),
+        //   ),
+        // ),
       ),
     ),
       ));
