@@ -30,6 +30,9 @@
 .pub-cache/
 .pub/
 /ui2/build/
+/ui1/build/
+/ui3/build/
+animated_hidden_drawer/build/
 
 # Web related
 lib/generated_plugin_registrant.dart
@@ -49,3 +52,17 @@ ui1/android/app/release
 ui2/android/app/debug
 ui2/android/app/profile
 ui2/android/app/release
+
+ui3/android/app/debug
+ui3/android/app/profile
+ui3/android/app/release
+
+/animated_hidden_drawer/
+# Android Studio will place build artifacts here
+animated_hidden_drawer/android/app/debug
+animated_hidden_drawer/android/app/profile
+animated_hidden_drawer/android/app/release
+
+animated_hidden_drawer/example/android/app/debug
+animated_hidden_drawer/example/android/app/profile
+animated_hidden_drawer/example/android/app/release
