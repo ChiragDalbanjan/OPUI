@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 /// As I build this plugin from scratch,
@@ -116,84 +118,99 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
             Container(
           /// This highly Customisable widget is used
           /// as a header for our attractive drawer
-          height: screenHeight*0.3,
-          width: 1000,
-          color: Color(0xff6b705c),
+          // decoration: BoxDecoration(
+          //   image: DecorationImage(
+          //     image: ExactAssetImage('assets/Drawer_BG_Image.png'),
+          //   )
+          // ),
+          height: screenHeight*0.15,
+          width: screenWidth,
+          //color: Colors.black26,
           child: Padding(
-            padding: const EdgeInsets.all(15.0),
+            padding: const EdgeInsets.only(top:30),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CircleAvatar(
-                  backgroundColor: Color(0xffffe8d6),
-                  radius: 40,
-                  child: Icon(
-                    Icons.account_circle,
-                    color: Color(0xff6b705c),
-                    size: 80,
+                Container(
+                  margin: EdgeInsets.only(left: 37,),
+                                  child: Text(
+                    "One Percent",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
-                Text(
-                  "One Percent",
-                  style: TextStyle(
-                      color: Color(0xffffe8d6),
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold),
-                )
+                // CircleAvatar(
+                //   backgroundColor: Color(0xffffe8d6),
+                //   radius: 40,
+                //   child: Icon(
+                //     Icons.account_circle,
+                //     color: Color(0xff6b705c),
+                //     size: 80,
+                //   ),
+                // ),
+                
               ],
             ),
           ),
         ),
             //widget.header != null ? widget.header : Container(),
-            Container(
-          color: widget.drawerBackgroundColor,
-          height: screenHeight*0.7,
+            Stack(
+                          children: [
+                            
+                            Image.asset('images/BG.png', fit: BoxFit.cover,),
+                            Container(
+                
+          //color: widget.drawerBackgroundColor,
+          height: screenHeight*0.85,
           width: screenWidth,
           child: SingleChildScrollView(
-                      child: Column(
-                    //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      //widget.header != null ? widget.header : Container(),
-                      Column(
-                          
-                //mainAxisAlignment: MainAxisAlignment.center,
-                //crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ListView.builder(
-                          /// This provides the list view
-                          /// ... xD
-                          /// among the given list of widget items
-                          controller: _scrollController,
-                          shrinkWrap: true,
-                          itemCount: widget.items.length,
-                          itemBuilder: (ctx, index) {
-              return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                        child: Column(
+                      //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        //widget.header != null ? widget.header : Container(),
+                        Column(
+                            
+                  //mainAxisAlignment: MainAxisAlignment.center,
+                  //crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-              GestureDetector(child: widget.items[index]),
-              Container(
-                /// This container acts as a divider line
-                color: widget.dividerColor,
-                height: widget.dividerDensity,
-                width: widget.dividerLength,
-              ),
-              SizedBox(
-                height: 30,
-              )
-                  ],
-                );
-                          },
-                    ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ListView.builder(
+                            /// This provides the list view
+                            /// ... xD
+                            /// among the given list of widget items
+                            controller: _scrollController,
+                            shrinkWrap: true,
+                            itemCount: widget.items.length,
+                            itemBuilder: (ctx, index) {
+                return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                GestureDetector(child: widget.items[index]),
+                Container(
+                  /// This container acts as a divider line
+                  color: widget.dividerColor,
+                  height: widget.dividerDensity,
+                  width: widget.dividerLength,
                 ),
-                ],
-              ),
+                SizedBox(
+                  height: 10,
+                )
                     ],
+                  );
+                            },
+                      ),
                   ),
+                  ],
+                ),
+                      ],
+                    ),
           )
-        ),]),
+        ),]
+            ),]),
         GestureDetector(
           onPanUpdate: (data) {
             /// This gesture detection is for
@@ -281,7 +298,9 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
                     isDOpen = false;
                   });
                 })
-            : IconButton(
+            : Row(
+              children: [
+                IconButton(
                 icon: Icon(Icons.menu_outlined),
                 onPressed: () {
                   /// if drawer not opened ,then on next press
@@ -300,6 +319,23 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
                     isDOpen = true;
                   });
                 }),
+
+                Padding(
+                  padding: EdgeInsets.only(left: 1, top: 2),
+                                  child: Text("One Percent",
+                  style: TextStyle(
+                    fontSize: 25,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold
+                  ),),
+                )
+
+              ],
+            ),
+            
+            
+
+
                     ),
                   ),
                   widget.child,

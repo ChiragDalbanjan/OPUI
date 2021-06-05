@@ -1,0 +1,73 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "animated_hidden_drawer",
+            "cwd": "animated_hidden_drawer",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "animated_hidden_drawer (profile mode)",
+            "cwd": "animated_hidden_drawer",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "ui1",
+            "cwd": "ui1",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "ui1 (profile mode)",
+            "cwd": "ui1",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "ui2",
+            "cwd": "ui2",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "ui2 (profile mode)",
+            "cwd": "ui2",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "ui3",
+            "cwd": "ui3",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "ui3 (profile mode)",
+            "cwd": "ui3",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "example",
+            "cwd": "animated_hidden_drawer\\example",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "example (profile mode)",
+            "cwd": "animated_hidden_drawer\\example",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        }
+    ]
+}
