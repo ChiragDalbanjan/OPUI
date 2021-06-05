@@ -111,74 +111,72 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
       children: [
         // Container(
         //   child: Visibility(child: widget.header, visible: widget.header == null,)
-          
+
         // ),
-        Column(
-          children: [
-            Container(
-          /// This highly Customisable widget is used
-          /// as a header for our attractive drawer
-          // decoration: BoxDecoration(
-          //   image: DecorationImage(
-          //     image: ExactAssetImage('assets/Drawer_BG_Image.png'),
-          //   )
-          // ),
-          height: screenHeight*0.15,
-          width: screenWidth,
-          //color: Colors.black26,
-          child: Padding(
-            padding: const EdgeInsets.only(top:30),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  margin: EdgeInsets.only(left: 37,),
-                                  child: Text(
-                    "One Percent",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold),
+        Column(children: [
+          Container(
+            /// This highly Customisable widget is used
+            /// as a header for our attractive drawer
+            // decoration: BoxDecoration(
+            //   image: DecorationImage(
+            //     image: ExactAssetImage('assets/Drawer_BG_Image.png'),
+            //   )
+            // ),
+            height: screenHeight * 0.15,
+            width: screenWidth,
+            //color: Colors.black26,
+            child: Padding(
+              padding: const EdgeInsets.only(top: 30),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(
+                      left: 37,
+                    ),
+                    child: Text(
+                      "One Percent",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 40,
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
-                ),
-                // CircleAvatar(
-                //   backgroundColor: Color(0xffffe8d6),
-                //   radius: 40,
-                //   child: Icon(
-                //     Icons.account_circle,
-                //     color: Color(0xff6b705c),
-                //     size: 80,
-                //   ),
-                // ),
-                
-              ],
+                  // CircleAvatar(
+                  //   backgroundColor: Color(0xffffe8d6),
+                  //   radius: 40,
+                  //   child: Icon(
+                  //     Icons.account_circle,
+                  //     color: Color(0xff6b705c),
+                  //     size: 80,
+                  //   ),
+                  // ),
+                ],
+              ),
             ),
           ),
-        ),
-            //widget.header != null ? widget.header : Container(),
-            Stack(
-                          children: [
-                            
-                            Image.asset('images/BG.png', fit: BoxFit.cover,),
-                            Container(
-                
-          //color: widget.drawerBackgroundColor,
-          height: screenHeight*0.85,
-          width: screenWidth,
-          child: SingleChildScrollView(
-                        child: Column(
-                      //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        //widget.header != null ? widget.header : Container(),
-                        Column(
-                            
-                  //mainAxisAlignment: MainAxisAlignment.center,
-                  //crossAxisAlignment: CrossAxisAlignment.start,
+          //widget.header != null ? widget.header : Container(),
+         
+          Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(image: AssetImage("images/bg.png"),fit: BoxFit.cover)
+              ),
+              //color: widget.drawerBackgroundColor,
+              height: screenHeight * 0.85,
+              width: screenWidth,
+              child: SingleChildScrollView(
+                child: Column(
+                  //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ListView.builder(
+                    //widget.header != null ? widget.header : Container(),
+                    Column(
+                      //mainAxisAlignment: MainAxisAlignment.center,
+                      //crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ListView.builder(
                             /// This provides the list view
                             /// ... xD
                             /// among the given list of widget items
@@ -186,31 +184,30 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
                             shrinkWrap: true,
                             itemCount: widget.items.length,
                             itemBuilder: (ctx, index) {
-                return Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                GestureDetector(child: widget.items[index]),
-                Container(
-                  /// This container acts as a divider line
-                  color: widget.dividerColor,
-                  height: widget.dividerDensity,
-                  width: widget.dividerLength,
-                ),
-                SizedBox(
-                  height: 10,
-                )
-                    ],
-                  );
+                              return Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  GestureDetector(child: widget.items[index]),
+                                  Container(
+                                    /// This container acts as a divider line
+                                    color: widget.dividerColor,
+                                    height: widget.dividerDensity,
+                                    width: widget.dividerLength,
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  )
+                                ],
+                              );
                             },
-                      ),
-                  ),
-                  ],
-                ),
+                          ),
+                        ),
                       ],
                     ),
-          )
-        ),]
-            ),]),
+                  ],
+                ),
+              )),
+        ]),
         GestureDetector(
           onPanUpdate: (data) {
             /// This gesture detection is for
@@ -263,90 +260,83 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
             height: screenHeight,
             width: screenWidth,
             child: Column(
-                children: [
-                  SafeArea(
-                    child: Align(
-                      alignment: Alignment.topLeft,
-                      child: isDOpen
-
-            /// If Drawer opened then icons is open_in_full
-            /// ...
-            /// or else menu_outlined for classification
-            /// ...
-            ///this bool plays vital role to check for condition for
-            /// whether the drawer
-            /// is opened
-            /// or not
-            ? IconButton(
-                icon: Icon(
-                  Icons.open_in_full,
-                  color: widget.drawerColor,
-                ),
-                onPressed: () {
-                  /// if drawer opened ,then on next press
-                  /// ...
-                  /// we should resize accordingly
-                  /// ...
-                  setState(() {
-                    xOffset = 0;
-                    yOffset = 0;
-                    scaleFactor = 1;
-                    radius = 0;
-                    rX = 0;
-                    rY = 0;
-                    zOffset = 0;
-                    isDOpen = false;
-                  });
-                })
-            : Row(
               children: [
-                IconButton(
-                icon: Icon(Icons.menu_outlined),
-                onPressed: () {
-                  /// if drawer not opened ,then on next press
-                  /// ...
-                  /// we should resize accordingly
-                  /// ...
-                  /// this gives attraction
-                  setState(() {
-                    xOffset = widget.x;
-                    yOffset = widget.y;
-                    scaleFactor = widget.scale;
-                    radius = widget.borderRadius;
-                    rX = widget.rotateX;
-                    rY = widget.rotateY;
-                    zOffset = widget.z;
-                    isDOpen = true;
-                  });
-                }),
+                SafeArea(
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: isDOpen
 
-                Padding(
-                  padding: EdgeInsets.only(left: 1, top: 2),
-                                  child: Text("One Percent",
-                  style: TextStyle(
-                    fontSize: 25,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold
-                  ),),
-                )
-
+                        /// If Drawer opened then icons is open_in_full
+                        /// ...
+                        /// or else menu_outlined for classification
+                        /// ...
+                        ///this bool plays vital role to check for condition for
+                        /// whether the drawer
+                        /// is opened
+                        /// or not
+                        ? IconButton(
+                            icon: Icon(
+                              Icons.open_in_full,
+                              color: widget.drawerColor,
+                            ),
+                            onPressed: () {
+                              /// if drawer opened ,then on next press
+                              /// ...
+                              /// we should resize accordingly
+                              /// ...
+                              setState(() {
+                                xOffset = 0;
+                                yOffset = 0;
+                                scaleFactor = 1;
+                                radius = 0;
+                                rX = 0;
+                                rY = 0;
+                                zOffset = 0;
+                                isDOpen = false;
+                              });
+                            })
+                        : Row(
+                            children: [
+                              IconButton(
+                                  icon: Icon(Icons.menu_outlined),
+                                  onPressed: () {
+                                    /// if drawer not opened ,then on next press
+                                    /// ...
+                                    /// we should resize accordingly
+                                    /// ...
+                                    /// this gives attraction
+                                    setState(() {
+                                      xOffset = widget.x;
+                                      yOffset = widget.y;
+                                      scaleFactor = widget.scale;
+                                      radius = widget.borderRadius;
+                                      rX = widget.rotateX;
+                                      rY = widget.rotateY;
+                                      zOffset = widget.z;
+                                      isDOpen = true;
+                                    });
+                                  }),
+                              Padding(
+                                padding: EdgeInsets.only(left: 1, top: 2),
+                                child: Text(
+                                  "One Percent",
+                                  style: TextStyle(
+                                      fontSize: 25,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              )
+                            ],
+                          ),
+                  ),
+                ),
+                widget.child,
               ],
             ),
-            
-            
-
-
-                    ),
-                  ),
-                  widget.child,
-                ],
-              ),
           ),
         ),
       ],
     );
-
-    
 
     // return SingleChildScrollView(
     //       child: SingleChildScrollView(
