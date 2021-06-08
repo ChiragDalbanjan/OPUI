@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:ui3/TabScreen.dart';
 import 'animated_hidden_drawer.dart';
 
 Color _themeColor = Colors.black;
